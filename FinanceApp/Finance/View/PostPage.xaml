@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:vm="clr-namespace:Finance.ViewModel"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Finance.View.PostPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <vm:PostVM x:Key="vm"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Share"
+                     Command="{Binding Source={StaticResource vm}, Path=ShareCommand}"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="16,0,16,16">
+                <Image x:Name="postImage"
+                       HorizontalOptions="FillAndExpand"
+                       Margin="-16,0"/>
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="creatorLabel"
+                           FontAttributes="Bold"
+                           FontSize="Medium"/>
+                    <Label x:Name="dateLabel"
+                           FontSize="Small"
+                           VerticalOptions="Center"
+                           TextColor="Silver"/>
+                </StackLayout>
+                <Label x:Name="descriptionLabel"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
